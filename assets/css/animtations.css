@@ -1,0 +1,295 @@
+/* ========================================
+   FlowSync - Animations & Keyframes
+   ======================================== */
+
+/* Hero Animations */
+@keyframes hero-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hero-visual-in {
+    from {
+        opacity: 0;
+        transform: translateX(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Badge Glow Animation */
+@keyframes badge-glow {
+    0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(91, 103, 245, 0.4); 
+    }
+    50% { 
+        box-shadow: 0 0 0 8px rgba(91, 103, 245, 0); 
+    }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+    50% { 
+        opacity: 0.5; 
+        transform: scale(0.8); 
+    }
+}
+
+/* Glow Float Animation */
+@keyframes glow-float {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1); 
+    }
+    33% { 
+        transform: translate(30px, -50px) scale(1.1); 
+    }
+    66% { 
+        transform: translate(-40px, 40px) scale(0.9); 
+    }
+}
+
+/* Floating Card Animation */
+@keyframes float-card {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg); 
+    }
+    25% { 
+        transform: translate(20px, -20px) rotate(2deg); 
+    }
+    75% { 
+        transform: translate(-20px, 10px) rotate(-2deg); 
+    }
+}
+
+/* Icon Float Animation */
+@keyframes icon-float {
+    0%, 100% { 
+        transform: translateY(0); 
+    }
+    50% { 
+        transform: translateY(-10px); 
+    }
+}
+
+/* Testimonial Scroll Animation */
+@keyframes testimonial-scroll {
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        transform: translateX(-50%); 
+    }
+}
+
+/* Loader Spin Animation */
+@keyframes spin {
+    to { 
+        transform: rotate(360deg); 
+    }
+}
+
+/* Shake Animation (for error states) */
+@keyframes shake {
+    0%, 100% { 
+        transform: translateX(0); 
+    }
+    25% { 
+        transform: translateX(-10px); 
+    }
+    75% { 
+        transform: translateX(10px); 
+    }
+}
+
+/* Rainbow Animation (Easter egg) */
+@keyframes rainbow {
+    0% { 
+        filter: hue-rotate(0deg); 
+    }
+    100% { 
+        filter: hue-rotate(360deg); 
+    }
+}
+
+/* Animation Classes */
+.hero-title {
+    opacity: 0;
+    animation: hero-fade-in 1s 0.2s forwards var(--ease-out-expo);
+}
+
+.hero-description {
+    opacity: 0;
+    animation: hero-fade-in 1s 0.4s forwards var(--ease-out-expo);
+}
+
+.hero-actions {
+    opacity: 0;
+    animation: hero-fade-in 1s 0.6s forwards var(--ease-out-expo);
+}
+
+.hero-stats {
+    opacity: 0;
+    animation: hero-fade-in 1s 0.8s forwards var(--ease-out-expo);
+}
+
+.hero-visual {
+    opacity: 0;
+    animation: hero-visual-in 1s 0.8s forwards var(--ease-out-expo);
+}
+
+.hero-badge {
+    animation: badge-glow 2s infinite;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+.glow-primary {
+    animation: glow-float 20s infinite ease-in-out;
+}
+
+.glow-secondary {
+    animation: glow-float 25s infinite ease-in-out reverse;
+}
+
+.floating-card {
+    animation: float-card 20s infinite ease-in-out;
+}
+
+.feature-icon {
+    animation: icon-float 3s infinite ease-in-out;
+}
+
+.feature-card:nth-child(2) .feature-icon { 
+    animation-delay: 0.5s; 
+}
+
+.feature-card:nth-child(3) .feature-icon { 
+    animation-delay: 1s; 
+}
+
+.feature-card:nth-child(4) .feature-icon { 
+    animation-delay: 1.5s; 
+}
+
+.feature-card:nth-child(5) .feature-icon { 
+    animation-delay: 2s; 
+}
+
+.feature-card:nth-child(6) .feature-icon { 
+    animation-delay: 2.5s; 
+}
+
+.testimonials-track {
+    animation: testimonial-scroll 40s linear infinite;
+}
+
+.testimonials-track:hover {
+    animation-play-state: paused;
+}
+
+.loader-ring::before {
+    animation: spin 1s linear infinite;
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
+
+/* Transition States */
+.feature-card,
+.testimonial-card {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.feature-card.visible,
+.testimonial-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Progress Fill Animation */
+.progress-fill {
+    transition: width 1s var(--ease-out-expo);
+}
+
+/* FAQ Answer Animation */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+/* Theme Toggle Animation */
+.toggle-thumb {
+    transition: transform 0.3s var(--ease-spring);
+}
+
+.pricing-toggle.active .toggle-thumb {
+    transform: translateX(28px);
+}
+
+/* Price Value Animation */
+.price-value {
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+/* Integration Logo Hover */
+.integration-logo {
+    opacity: 0.4;
+    filter: grayscale(100%);
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+.integration-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* CTA Background Animation */
+.cta-background {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-primary);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Mobile Menu Animation */
+.nav-links {
+    transition: transform 0.3s var(--ease-out-expo);
+}
+
+/* Hover Effects */
+.btn,
+.feature-card,
+.pricing-card,
+.social-link,
+.faq-question {
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+/* Magnetic Button Effect */
+.btn {
+    transform-style: preserve-3d;
+    transition: transform 0.2s var(--ease-out-expo);
+}

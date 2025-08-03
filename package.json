@@ -1,0 +1,106 @@
+{
+  "name": "flowsync-landing",
+  "version": "1.0.0",
+  "description": "Modern SaaS landing page for FlowSync - intelligent project management platform",
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "keywords": [
+    "landing-page",
+    "saas",
+    "project-management",
+    "html",
+    "css",
+    "javascript",
+    "responsive",
+    "modern"
+  ],
+  "homepage": "https://flowsync.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/flowsync-landing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/flowsync-landing/issues"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "live-server --port=3000 --host=localhost --watch=/assets/",
+    "build": "npm run build:css && npm run build:js && npm run build:html",
+    "build:css": "npm run css:compile && npm run css:prefix && npm run css:minify",
+    "build:js": "npm run js:compile && npm run js:minify",
+    "build:html": "html-minifier-terser index.html -o dist/index.html --collapse-whitespace --remove-comments",
+    "css:compile": "concat -o dist/style.css assets/css/style.css assets/css/components.css assets/css/animations.css assets/css/responsive.css",
+    "css:prefix": "postcss dist/style.css --use autoprefixer -o dist/style.css",
+    "css:minify": "cssnano dist/style.css dist/style.min.css",
+    "js:compile": "concat -o dist/main.js assets/js/theme.js assets/js/animations.js assets/js/form-validation.js assets/js/easter-eggs.js assets/js/main.js",
+    "js:minify": "terser dist/main.js -o dist/main.min.js -c -m",
+    "lint": "npm run lint:css && npm run lint:js",
+    "lint:css": "stylelint \"assets/css/*.css\"",
+    "lint:js": "eslint \"assets/js/*.js\"",
+    "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
+    "test": "echo \"No tests specified\" && exit 0",
+    "clean": "rimraf dist",
+    "optimize:images": "imagemin assets/images/* --out-dir=dist/assets/images",
+    "serve": "http-server dist -p 8080",
+    "deploy": "npm run build && npm run deploy:gh-pages",
+    "deploy:gh-pages": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "concat": "^1.0.3",
+    "cssnano": "^6.0.1",
+    "cssnano-cli": "^1.0.5",
+    "eslint": "^8.54.0",
+    "gh-pages": "^6.1.0",
+    "html-minifier-terser": "^7.2.0",
+    "http-server": "^14.1.1",
+    "imagemin": "^8.0.1",
+    "imagemin-cli": "^7.0.0",
+    "live-server": "^1.2.2",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "prettier": "^3.1.0",
+    "rimraf": "^5.0.5",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
+    "terser": "^5.24.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead"
+  ],
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "printWidth": 100
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "selector-class-pattern": null,
+      "custom-property-pattern": null
+    }
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "off"
+    }
+  }
+}
