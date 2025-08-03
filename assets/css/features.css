@@ -1,0 +1,137 @@
+/* ========================================
+   Features Section Styles
+   ======================================== */
+
+/* Features Section */
+.features {
+    padding: var(--space-2xl) 0;
+    background: var(--background);
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+}
+
+/* Feature Card */
+.feature-card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s var(--ease-out-expo);
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ease-out-expo);
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Feature Icon */
+.feature-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--surface-hover);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+.feature-card:hover .feature-icon {
+    background: var(--gradient-primary);
+    transform: scale(1.1);
+}
+
+/* Feature Content */
+.feature-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.feature-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* Integrations Section */
+.integrations {
+    padding: var(--space-xl) 0;
+    text-align: center;
+    border-top: 1px solid var(--surface-hover);
+    border-bottom: 1px solid var(--surface-hover);
+}
+
+.integration-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xl);
+    margin-top: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.integration-logo {
+    opacity: 0.4;
+    filter: grayscale(100%);
+    transition: all 0.3s var(--ease-out-expo);
+    cursor: pointer;
+}
+
+.integration-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+.integration-logo svg {
+    height: 30px;
+    width: auto;
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .feature-card {
+    background: var(--dark-surface);
+}
+
+[data-theme="dark"] .feature-card:hover {
+    border-color: var(--primary-light);
+}
+
+[data-theme="dark"] .feature-icon {
+    background: var(--dark-surface-hover);
+}
+
+[data-theme="dark"] .integrations {
+    border-top-color: var(--dark-surface-hover);
+    border-bottom-color: var(--dark-surface-hover);
+}

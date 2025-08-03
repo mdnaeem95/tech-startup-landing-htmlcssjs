@@ -1,0 +1,208 @@
+/* ========================================
+   Footer Styles
+   ======================================== */
+
+/* Footer */
+footer {
+    padding: var(--space-xl) 0 var(--space-lg);
+    background: var(--surface-hover);
+}
+
+/* Footer Content Grid */
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+
+/* Footer Brand */
+.footer-brand {
+    max-width: 300px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.footer-logo .logo-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.footer-logo .logo-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-family: var(--font-display);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-description {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background: var(--surface);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+.social-link:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(91, 103, 245, 0.3);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-secondary);
+    transition: fill 0.3s;
+}
+
+.social-link:hover svg {
+    fill: white;
+}
+
+/* Footer Sections */
+.footer-section h4 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transition: color 0.3s var(--ease-out-expo);
+    position: relative;
+    display: inline-block;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--primary);
+    transition: width 0.3s var(--ease-out-expo);
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--surface);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.footer-bottom a {
+    color: var(--text-muted);
+    transition: color 0.3s var(--ease-out-expo);
+}
+
+.footer-bottom a:hover {
+    color: var(--primary);
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] footer {
+    background: var(--dark-surface);
+}
+
+[data-theme="dark"] .social-link {
+    background: var(--dark-surface-hover);
+}
+
+[data-theme="dark"] .social-link:hover {
+    background: var(--primary);
+}
+
+[data-theme="dark"] .footer-bottom {
+    border-top-color: var(--dark-surface-hover);
+}
+
+/* Mobile Styles */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--space-md);
+    }
+    
+    .footer-brand {
+        max-width: 100%;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+    }
+    
+    .footer-bottom div {
+        flex-direction: column;
+    }
+}

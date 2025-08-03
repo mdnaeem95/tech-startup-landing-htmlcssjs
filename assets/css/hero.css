@@ -1,0 +1,290 @@
+/* ========================================
+   Hero Section Styles
+   ======================================== */
+
+/* Hero Container */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 120px 0 80px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-mesh);
+    opacity: 0.05;
+    z-index: -1;
+}
+
+/* Hero Content Grid */
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+/* Hero Badge */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--surface-hover);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.pulse {
+    width: 8px;
+    height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+/* Hero Title */
+.hero-title {
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+/* Hero Description */
+.hero-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+    color: var(--text-secondary);
+}
+
+/* Hero Actions */
+.hero-actions {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+    margin-bottom: var(--space-xl);
+}
+
+/* Hero Stats */
+.hero-stats {
+    display: flex;
+    gap: var(--space-lg);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* Hero Visual - Dashboard Preview */
+.hero-visual {
+    position: relative;
+}
+
+.dashboard-container {
+    position: relative;
+    transform: perspective(1200px) rotateY(-15deg) rotateX(5deg);
+    transform-style: preserve-3d;
+}
+
+.dashboard {
+    background: var(--surface);
+    border-radius: 12px;
+    box-shadow: 
+        0 50px 100px -20px rgba(50, 50, 93, 0.25),
+        0 30px 60px -30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-header {
+    padding: 1rem;
+    background: var(--surface-hover);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.window-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.dashboard-content {
+    padding: 1.5rem;
+}
+
+/* Mini Stats Cards */
+.mini-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.mini-stat-card {
+    background: var(--surface-hover);
+    padding: 1rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mini-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.mini-stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.mini-chart {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 30px;
+}
+
+/* Project List */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.project-item {
+    padding: 0.75rem;
+    background: var(--surface-hover);
+    border-radius: 8px;
+}
+
+.project-name {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.project-progress {
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    transition: width 1s var(--ease-out-expo);
+}
+
+/* Floating Notification Card */
+.floating-card {
+    position: absolute;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    box-shadow: 
+        0 20px 40px -10px rgba(50, 50, 93, 0.25),
+        0 10px 20px -5px rgba(0, 0, 0, 0.3);
+    animation: float-card 20s infinite ease-in-out;
+}
+
+.notification-card {
+    top: -20px;
+    right: -60px;
+    min-width: 200px;
+}
+
+.notification-header {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.notification-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--success);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.notification-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.125rem;
+}
+
+.notification-message {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .dashboard {
+    background: var(--dark-surface);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .dashboard-header {
+    background: var(--dark-surface-hover);
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .mini-stat-card,
+[data-theme="dark"] .project-item {
+    background: var(--dark-surface-hover);
+}
+
+[data-theme="dark"] .project-progress {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .floating-card {
+    background: var(--dark-surface);
+}

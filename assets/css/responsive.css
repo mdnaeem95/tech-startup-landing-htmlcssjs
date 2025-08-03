@@ -85,6 +85,7 @@
         transition: transform 0.3s var(--ease-out-expo);
         box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
         padding: var(--space-md);
+        margin: 0;
     }
     
     .nav-links.active {
